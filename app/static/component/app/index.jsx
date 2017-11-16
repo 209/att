@@ -4,7 +4,7 @@ import Table from '../../containter/Table';
 const App = () => {
   return (
     <div>
-      <Table />
+
     </div>
   );
 };
