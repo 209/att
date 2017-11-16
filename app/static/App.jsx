@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './component/App';
+import App from './component/app';
 import configureStore from './configureStore';
 
 const SELECTOR = document.getElementById('js-base-container');
