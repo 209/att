@@ -1,3 +1,8 @@
-.ticket {
-
+.ticket-list {
+  .ticket {
+    margin-bottom: 20px;
+  }
+  .ticket:first-child {
+    margin-bottom: 0;
+  }
 }
