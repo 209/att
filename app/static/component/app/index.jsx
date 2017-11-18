@@ -1,10 +1,10 @@
 import React from 'react';
-import Table from '../../containter/Table';
+import TicketsList from 'containter/ticketsList';
 
 const App = () => {
   return (
     <div>
-
+      <TicketsList />
     </div>
   );
 };

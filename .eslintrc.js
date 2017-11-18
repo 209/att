@@ -25,6 +25,7 @@ const eslintrc = {
   rules:         {
     'func-names':                              0,
     'arrow-body-style':                        0,
+    'arrow-parens':                            ["error", "as-needed"],
     'react/sort-comp':                         0,
     'react/prop-types':                        0,
     'react/jsx-first-prop-new-line':           0,
@@ -85,6 +86,9 @@ const eslintrc = {
         'ObjectExpression':   1,
       },
     ],
+    "react/jsx-indent":                        [1, 50],
+    "react/require-default-props":             0,
+    "react/forbid-prop-types":                 0
   },
 };
 

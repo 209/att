@@ -30,6 +30,12 @@ module.exports = {
           cacheDirectory: os.tmpdir(),
         },
       }],
+    }, {
+      test:    /\.json$/,
+      exclude: /node_modules/,
+      use:     [{
+        loader: 'raw-loader',
+      }],
     }],
   },
 };

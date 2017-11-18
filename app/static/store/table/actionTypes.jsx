@@ -1,2 +1,0 @@
-
-export const CHANGE_PAGE = 'POCKEMONES.CHANGE_PAGE';
