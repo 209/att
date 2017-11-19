@@ -1,0 +1,20 @@
+.tickets-filter {
+  display:        flex;
+  flex-direction: column;
+  padding:        15px 0 20px;
+
+  header {
+    text-transform: uppercase;
+    padding:        0 10px;
+  }
+  footer {
+    .tickets-filter-item {
+      padding:     0 10px;
+      line-height: 22px;
+
+      &.-disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}

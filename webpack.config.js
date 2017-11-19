@@ -20,7 +20,7 @@ module.exports = {
     // libraryTarget: 'amd',
     filename: 'init.js',
   },
-  devtool: '#inline-source-map',
+  devtool: 'none', //'#inline-source-map',
   module:  {
     rules: [{
       test:    /\.js|.jsx$/,
@@ -45,7 +45,7 @@ module.exports = {
             loader:  'css-loader',
             options: {
               minimize:  false,
-              sourceMap: true,
+              sourceMap: false,
             },
           },
           {

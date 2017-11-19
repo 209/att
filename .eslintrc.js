@@ -84,9 +84,14 @@ const eslintrc = {
         },
         'MemberExpression':   1,
         'ObjectExpression':   1,
+        "ignoredNodes":       [
+          "JSXAttribute",
+          "JSXSpreadAttribute",
+        ],
       },
     ],
-    "react/jsx-indent":                        [1, 50],
+    "react/jsx-indent":                        0,
+    "react/jsx-indent-props":                  0,
     "react/require-default-props":             0,
     "react/forbid-prop-types":                 0
   },
