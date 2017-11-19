@@ -1,0 +1,228 @@
+.ticket {
+  box-shadow: 0 1px 4px #5b89a4;
+  border-radius: 5px;
+  display: inline-flex;
+  width: 566px;
+  height: 161px;
+  background-color: #fff; }
+  .ticket > section:first-child {
+    width: 200px;
+    border-right: 1px solid #ECEFF1; }
+  .ticket > section:last-child {
+    width: 366px; }
+
+.ticket-buy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 25px 20px; }
+  .ticket-buy > header {
+    align-items: center; }
+  .ticket-buy > footer > button {
+    width: 160px;
+    height: 56px;
+    background-color: #FF6D00;
+    color: #fff;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+    cursor: pointer; }
+
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 22px 20px; }
+  .ticket-info > header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 7px; }
+  .ticket-info > footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 7px 0; }
+
+.ticket-time {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 32px;
+  color: #4A4A4A; }
+
+.ticket-place {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px; }
+  .ticket-place > header {
+    display: inline-flex;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #4A4A4A; }
+  .ticket-place > footer {
+    display: inline-flex;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    color: #8B9497; }
+  .ticket-place:first-child > footer {
+    justify-content: flex-start; }
+  .ticket-place:last-child > footer {
+    justify-content: flex-end; }
+
+.ticket-stops {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #8B9497;
+  font-size: 10px;
+  text-transform: uppercase; }
+  .ticket-stops header {
+    margin-top: 3px; }
+  .ticket-stops footer {
+    align-items: center;
+    display: flex; }
+    .ticket-stops footer svg:last-child {
+      margin-left: 3px; }
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; }
+  .ticket-list .ticket {
+    margin-bottom: 20px; }
+  .ticket-list .ticket:last-child {
+    margin-bottom: 20px; }
+.ui-checkbox {
+  cursor: pointer; }
+.tickets-filter {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  box-shadow: 0 1px 4px #5b89a4;
+  border-radius: 5px;
+  width: 232px;
+  height: 231px;
+  background-color: #fff;
+  margin: 20px 20px 0 20px;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  color: #4A4A4A;
+  font-size: 12px; }
+  .tickets-filter header {
+    text-transform: uppercase;
+    padding: 0 16px; }
+  .tickets-filter footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px; }
+    .tickets-filter footer .tickets-filter-item {
+      display: flex;
+      align-items: center;
+      padding: 18px 16px;
+      cursor: pointer; }
+      .tickets-filter footer .tickets-filter-item.-disabled {
+        opacity: 0.5; }
+      .tickets-filter footer .tickets-filter-item > .count-label {
+        margin-left: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1; }
+      .tickets-filter footer .tickets-filter-item .apply-only {
+        text-transform: uppercase;
+        color: #3E9CE8;
+        display: none; }
+      .tickets-filter footer .tickets-filter-item:hover {
+        display: inline-flex;
+        background-color: #F1FCFF; }
+        .tickets-filter footer .tickets-filter-item:hover .apply-only {
+          display: inline-flex; }
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media screen and (max-width: 566px) {
+  .ticket {
+    width: auto !important;
+    height: auto !important;
+    flex-direction: column-reverse !important; }
+    .ticket section {
+      width: auto !important;
+      height: auto !important; }
+  .ticket-buy {
+    padding: 0 0 20px 0 !important; }
+    .ticket-buy header {
+      padding-bottom: 10px; }
+  .ticket-info {
+    padding: 20px 5px !important; }
+  .ticket-stops footer {
+    width: 70px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important; } }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f7fa; }
+  body > div {
+    display: flex; }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center; }
+  .app-container > header {
+    height: 144px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    display: flex; }
+  .app-container > footer {
+    display: flex;
+    flex-direction: initial;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; }
