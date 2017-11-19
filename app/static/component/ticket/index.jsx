@@ -32,7 +32,7 @@ const Buy = props => {
       <footer>
         <button>
           Купить<br />
-          {`за ${numeral(props.price).format('0[,]0').replace(',', ' ')} р`}
+          {`за ${numeral(props.price).format('0[,]0').replace(',', ' ')} Р`}
         </button>
       </footer>
     </div>
