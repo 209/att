@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import numeral from 'numeral';
+import AirPlaneIcon from 'ui/icons/airplane';
+import Line from 'ui/figures/line';
+import LogoAirline from 'ui/img/logoAirline';
 import './style.scss';
 
 const Stops = props => (
   <span className="ticket-stops">
-    {`${props.stops} пересадок`}
+    <header>{`${props.stops} пересадок`}</header>
+    <footer>
+      <Line />
+      <AirPlaneIcon />
+    </footer>
   </span>
 );
 const Time = ({ time }) => <span className="ticket-time">{time}</span>;
@@ -18,9 +26,14 @@ const Place = props => (
 const Buy = props => {
   return (
     <div className="ticket-buy">
-      <header>{props.carrier}</header>
+      <header alt={props.carrier}>
+        <LogoAirline />
+      </header>
       <footer>
-        <button>{`Купить за ${props.price}р`}</button>
+        <button>
+          Купить<br />
+          {`за ${numeral(props.price).format('0[,]0').replace(',', ' ')} р`}
+        </button>
       </footer>
     </div>
   );

@@ -60,6 +60,11 @@ module.exports = {
         ],
         fallback: 'style-loader',
       }),
+    }, {
+      test: /\.svg$/,
+      use:  [{
+        loader: 'react-svg-loader',
+      }],
     }],
   },
   plugins: [

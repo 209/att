@@ -1,6 +1,23 @@
+@import '../../../../node_modules/reset-css/reset';
+
 body {
   display:          flex;
   align-items:      center;
   justify-content:  center;
   background-color: #f3f7fa;
+}
+
+.app-container {
+  display:         flex;
+  flex-direction:  column;
+  align-content:   center;
+  justify-content: center;
+
+  & > header {
+    height:          164px;
+    align-content:   center;
+    justify-content: center;
+    align-items:     center;
+    display:         flex;
+  }
 }
