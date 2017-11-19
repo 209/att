@@ -1,6 +1,30 @@
-@media screen and (max-device-width: 320px) {
+@media screen and (max-width: 566px) {
   .ticket {
-    width:  320px;
-    height: auto;
+    width:          auto !important;
+    height:         auto !important;
+    flex-direction: column-reverse !important;
+
+    section {
+      width:  auto !important;
+      height: auto !important;
+    }
+  }
+  .ticket-buy {
+    padding: 0 0 20px 0 !important;
+
+    header {
+      padding-bottom: 10px;
+    }
+  }
+  .ticket-info {
+    padding: 20px 5px !important;
+  }
+
+  .ticket-stops {
+    footer {
+      width:         70px !important;
+      padding-left:  20px !important;
+      padding-right: 20px !important;
+    }
   }
 }
