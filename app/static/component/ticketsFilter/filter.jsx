@@ -38,19 +38,20 @@ class Filter extends Component {
     return (
       <div className={className} onClick={this.handleToggle} onKeyPress={this.handleToggle}>
         <Checkbox checked={checked} disabled={!count} />
-        <span className="count">{countText}</span>
-        {
-          isOnlyEnable ?
-            (
-              <span className="apply-only"
-                    onClick={this.handleToggleForce}
-                    onKeyPress={this.handleToggleForce}
-              >
-                Только
-              </span>
-            ) :
-            null
-        }
+        <span className="count-label">
+          <span className="count">{countText}</span>
+          {
+            isOnlyEnable ?
+              (
+                <span className="apply-only"
+                      onClick={this.handleToggleForce}
+                      onKeyPress={this.handleToggleForce}
+                >Только
+                </span>
+              ) :
+              null
+          }
+        </span>
       </div>
     );
   }

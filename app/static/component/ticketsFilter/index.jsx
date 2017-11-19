@@ -55,7 +55,7 @@ class TicketsFilter extends Component {
           {filters.map((count, stops) => {
             const key = `${stops}-${count}`;
             const checked = filter[stops];
-            const countText = stops === 1 ? 'Без пресадок' : `${stops} пересадок`;
+            const countText = stops ? `${stops} пересадок` : 'Без пресадок';
 
             return (
               <Filter count={count}
