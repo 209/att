@@ -1,10 +1,13 @@
-image: alpine:latest
+image: ruby:2.3
 pages:
   stage: deploy
   script:
   - echo 'Nothing to do...'
+  - pwd
+  - echo "I am on gitlab-runner"
+  - cp -rp app public
   artifacts:
     paths:
-    - app/build
+    - public
   only:
   - master
