@@ -7,7 +7,7 @@
   width:            232px;
   height:           231px;
   background-color: #fff;
-  margin-right:     20px;
+  margin:           20px 20px 0 20px;
   font-family:      Helvetica, "Helvetica Neue", Arial, sans-serif;
   color:            #4A4A4A;
   font-size:        12px;
@@ -16,6 +16,7 @@
     text-transform: uppercase;
     padding:        0 16px;
   }
+
   footer {
     display:        flex;
     flex-direction: column;

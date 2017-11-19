@@ -2,10 +2,12 @@
   display:        flex;
   flex-direction: column;
 
+  margin-top:     20px;
+
   .ticket {
-    margin-top: 20px;
+    margin-bottom: 20px;
   }
-  .ticket:first-child {
-    margin-top: 0;
+  .ticket:last-child {
+    margin-bottom: 20px;
   }
 }
