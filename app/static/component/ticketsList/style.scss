@@ -1,8 +1,11 @@
 .ticket-list {
+  display:        flex;
+  flex-direction: column;
+
   .ticket {
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
   .ticket:first-child {
-    margin-bottom: 0;
+    margin-top: 0;
   }
 }

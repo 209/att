@@ -6,6 +6,7 @@
     "comment-empty-line-before": null,
     "declaration-bang-space-before": null,
     "declaration-empty-line-before": null,
+    "declaration-colon-space-after": null,
     "function-comma-newline-after": null,
     "function-name-case": null,
     "function-parentheses-newline-inside": null,
@@ -21,6 +22,7 @@
     "unit-no-unknown": null,
     "value-list-max-empty-lines": null,
     "no-missing-end-of-source-newline": null,
-    "color-hex-length": null
+    "color-hex-length": null,
+    "color-hex-case": null
   }
 }

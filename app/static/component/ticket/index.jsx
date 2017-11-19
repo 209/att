@@ -8,7 +8,6 @@ const Stops = props => (
   </span>
 );
 const Time = ({ time }) => <span className="ticket-time">{time}</span>;
-const Today = ({ date }) => <span>{date}</span>;
 const Place = props => (
   <div className="ticket-place">
     <header>{props.place}</header>
@@ -21,7 +20,7 @@ const Buy = props => {
     <div className="ticket-buy">
       <header>{props.carrier}</header>
       <footer>
-        <button>{`Купиь за ${props.price}р`}</button>
+        <button>{`Купить за ${props.price}р`}</button>
       </footer>
     </div>
   );
@@ -36,7 +35,7 @@ const Info = props => {
       </header>
       <footer>
         <Place place={`${props.origin}, ${props.originName}`} date={props.departureDate} />
-        <Place place={`${props.destination}, ${props.destinationName}`} date={props.arrivalDate} />
+        <Place place={`${props.destinationName}, ${props.destination}`} date={props.arrivalDate} />
       </footer>
     </div>
   );
@@ -67,7 +66,6 @@ class Ticket extends Component {
         </section>
         <section>
           <Info {...this.props} />
-          <Today {...this.props} />
         </section>
       </div>
     );
