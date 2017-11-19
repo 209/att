@@ -37,7 +37,7 @@ class TicketsFilter extends Component {
     } = this.props;
 
     const isAllChecked = filter.reduce((memo, item) => {
-      memo = item && item;
+      memo = memo && item;
       return memo;
     }, true);
 
