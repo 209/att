@@ -15,15 +15,15 @@ const columns = [{
 }, {
   Header:   'Clicks',
   accessor: 'clicks',
-  minWidth: 70,
+  minWidth: 50,
 }, {
   Header:   'Uniq. clicks',
   accessor: 'unique_clicks',
-  minWidth: 70,
+  minWidth: 90,
 }, {
   Header:   'CTR',
   accessor: 'ctr',
-  minWidth: 70,
+  minWidth: 50,
 }, {
   Header:   'Bookings',
   accessor: 'bookings',
@@ -31,19 +31,19 @@ const columns = [{
 }, {
   Header:   'Sales',
   accessor: 'sales',
-  minWidth: 70,
+  minWidth: 50,
 }, {
   Header:   'BTR',
   accessor: 'btr',
-  minWidth: 70,
+  minWidth: 50,
 }, {
   Header:   'STR',
   accessor: 'str',
-  minWidth: 70,
+  minWidth: 50,
 }, {
   Header:   'Success %',
   accessor: 'success',
-  minWidth: 70,
+  minWidth: 75,
 }, {
   Header:   'Errors %',
   accessor: 'errors',
@@ -55,7 +55,7 @@ const columns = [{
 }, {
   Header:   'T/O %',
   accessor: 'timeouts',
-  minWidth: 70,
+  minWidth: 50,
 }, {
   Header:   'Avg Resp',
   accessor: 'duration',
