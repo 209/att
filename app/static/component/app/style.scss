@@ -1,36 +1,6 @@
 @import '../../../../node_modules/reset-css/reset';
-@import './media.scss';
-
-body {
-  display:          flex;
-  align-items:      center;
-  justify-content:  center;
-  background-color: #f3f7fa;
-
-  & > div {
-    display: flex;
-  }
-}
 
 .app-container {
-  display:         flex;
-  flex-direction:  column;
-  align-content:   center;
-  justify-content: center;
-
-  & > header {
-    height:          144px;
-    align-content:   center;
-    justify-content: center;
-    align-items:     center;
-    display:         flex;
-  }
-
-  & > footer {
-    display:         flex;
-    flex-direction:  initial;
-    justify-content: center;
-    align-items:     flex-start;
-    flex-wrap:       wrap;
-  }
+  font-size: 14px;
+  color:     #4A4A4A;
 }

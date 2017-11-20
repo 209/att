@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import ticketsListReducer from './store/ticketsList/reducer';
-import ticketsFilterReducer from './store/ticketsFilter/reducer';
+import statisticsReducer from './store/statistics/reducer';
 
 const mainReducer = combineReducers({
-  ticketsList:   ticketsListReducer,
-  ticketsFilter: ticketsFilterReducer,
+  statistics: statisticsReducer,
 });
 
 const rootReducer = (state, action) => mainReducer(state, action);

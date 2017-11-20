@@ -1,4 +1,4 @@
-import { getTickets } from 'store/ticketsList/selectors';
+import { getTickets } from 'store/statistics/selectors';
 import groupBy from 'lodash-es/groupBy';
 import range from 'lodash-es/range';
 import isArray from 'lodash-es/isArray';

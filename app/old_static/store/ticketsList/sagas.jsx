@@ -2,7 +2,7 @@ import { put, takeLatest, all } from 'redux-saga/effects';
 import {
   getTicketsApi as fetchTicketsApi,
   getTicketsLocal as localTickets,
-} from 'api/tickets';
+} from 'api/statistics';
 import * as actionTypes from './actionTypes';
 import * as actions from './actions';
 
