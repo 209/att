@@ -66,6 +66,8 @@ class Statistics extends Component {
   static propTypes = {
     statistics:      PropTypes.array,
     fetchStatistics: PropTypes.func,
+    limitOptions:    PropTypes.array,
+    limit:           PropTypes.number,
   };
 
   static defaultProps = {
@@ -79,12 +81,16 @@ class Statistics extends Component {
   render() {
     const {
       statistics,
+      limitOptions,
+      limit,
     } = this.props;
 
     return (
       <ReactTable
         data={statistics}
         columns={columns}
+        pageSizeOptions={limitOptions}
+        pageSize={limit}
       />
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Statistics from 'containter/statistics';
+import Statistics from 'component/reportStats/index';
 import './style.scss';
 
 const App = () => {

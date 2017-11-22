@@ -1,4 +1,4 @@
-import { makeReducer } from '../../utils/redux';
+import { makeReducer } from 'utils/redux';
 import * as actionTypes from './actionTypes';
 
 const reducer = makeReducer([], {
