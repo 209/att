@@ -1,3 +1,48 @@
+.report-info {
+  width: 33%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start; }
+  .report-info > * {
+    display: inline-flex; }
+.report-goto {
+  width: 34%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; }
+  .report-goto > * {
+    display: inline-flex; }
+  .report-goto-label {
+    margin-right: 5px; }
+.report-pagination {
+  width: 33%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end; }
+  .report-pagination > * {
+    display: inline-flex; }
+  .report-pagination-item {
+    display: inline-block;
+    padding: 10px;
+    width: 15px;
+    border-radius: 20px;
+    text-align: center;
+    color: #00b298;
+    cursor: pointer; }
+    .report-pagination-item.-selected {
+      color: #caefe9;
+      background-color: #00b298; }
+  .report-pagination-prev {
+    margin-right: 20px; }
+    .report-pagination-prev.-disabled {
+      color: #929292; }
+  .report-pagination-next {
+    margin-left: 20px; }
+    .report-pagination-next.-disabled {
+      color: #929292; }
+.report-footer {
+  margin-top: 20px;
+  display: flex; }
 .ReactTable {
   position: relative;
   display: -webkit-box;
@@ -405,6 +450,31 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+.ReactTable {
+  display: flex;
+  border: none; }
+  .ReactTable .rt-thead .rt-th,
+  .ReactTable .rt-thead .rt-td {
+    border-right: none;
+    text-align: left;
+    font-weight: bold; }
+  .ReactTable .rt-tbody .rt-td {
+    border-right: none;
+    text-align: left; }
+  .ReactTable .rt-thead.-header {
+    box-shadow: none; }
+  .ReactTable .-odd {
+    background-color: #f9f9f9; }
+.report-limit {
+  display: flex;
+  line-height: 18px;
+  margin-bottom: 10px; }
+  .report-limit-select {
+    margin: 0 5px; }
+.report {
+  display: flex;
+  color: #1592b1;
+  flex-direction: column; }
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -452,4 +522,5 @@ table {
 
 .app-container {
   font-size: 14px;
-  color: #4A4A4A; }
+  color: #4A4A4A;
+  padding: 20px 40px; }

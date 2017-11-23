@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './style.scss';
+
 class Limit extends Component {
   static propTypes = {
     limit:        PropTypes.number,
@@ -10,7 +12,7 @@ class Limit extends Component {
 
   handleChange = event => {
     this.props.handleChange(event.target.value);
-  }
+  };
 
   render() {
     const {
@@ -19,8 +21,9 @@ class Limit extends Component {
     } = this.props;
 
     return (
-      <div>
-        <select onChange={this.handleChange} value={limit}>
+      <div className="report-limit">
+        <span>Show</span>
+        <select className="report-limit-select" onChange={this.handleChange} value={limit}>
           {
             limitOptions.map((lim, index) => {
               const key = `lo_${index}`;
@@ -28,6 +31,7 @@ class Limit extends Component {
             })
           }
         </select>
+        <span>entries</span>
       </div>
     );
   }

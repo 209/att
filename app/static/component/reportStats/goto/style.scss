@@ -1,0 +1,17 @@
+.report-goto {
+  width:           34%;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+
+  & > * {
+    display: inline-flex;
+  }
+
+  &-label {
+    margin-right: 5px;
+  }
+  &-input {
+
+  }
+}

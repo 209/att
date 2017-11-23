@@ -1,0 +1,10 @@
+.report-info {
+  width:           33%;
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: flex-start;
+
+  & > * {
+    display: inline-flex;
+  }
+}

@@ -1,0 +1,25 @@
+.ReactTable {
+  display: flex;
+  border:  none;
+
+  .rt-thead {
+    .rt-th,
+    .rt-td {
+      border-right: none;
+      text-align:   left;
+      font-weight:  bold;
+    }
+  }
+
+  .rt-tbody .rt-td {
+    border-right: none;
+    text-align:   left;
+  }
+
+  .rt-thead.-header {
+    box-shadow: none;
+  }
+  .-odd {
+    background-color: #f9f9f9;
+  }
+}
