@@ -11,6 +11,7 @@ const reducer = makeReducer(initState, {
   [actionTypes.CHANGE_PAGE_LIMIT]: (state, action) => ({
     ...state,
     limit: Number(action.limit),
+    page:  1,
   }),
 
   [actionTypes.CHANGE_PAGE]: (state, action) => ({

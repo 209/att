@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import Page from './page';
 import './style.scss';
-
-const Page = ({ page, selected, handleChangePage }) => {
-  const apply = () => handleChangePage(page);
-
-  return (
-    <span onClick={apply}
-          onKeyPress={apply}
-          className={`report-pagination-item ${selected ? '-selected' : ''}`}
-    >{page}
-    </span>
-  );
-};
 
 class Pagination extends Component {
   static propTypes = {
@@ -22,20 +10,23 @@ class Pagination extends Component {
     handleChangePage: PropTypes.func,
   };
 
-  renderPages() {
-    const arr = [];
-    const {
-      page,
-      totalPages,
-      handleChangePage,
-    } = this.props;
+  handleChangePage = page => {
+    this.props.handleChangePage(page);
+  };
 
-    for (let i = 1; i < totalPages; i += 1) {
-      arr.push(<Page key={`key_${i}`} page={i} selected={i === page} handleChangePage={handleChangePage} />);
+  handleSetPreviousPage = () => {
+    if (this.props.page === 1) {
+      return;
     }
+    this.props.handleChangePage(this.props.page - 1);
+  };
 
-    return arr;
-  }
+  handleSetNextPage = () => {
+    if (this.props.page === this.props.totalPages) {
+      return;
+    }
+    this.props.handleChangePage(this.props.page + 1);
+  };
 
   render() {
     const {
@@ -43,11 +34,29 @@ class Pagination extends Component {
       totalPages,
     } = this.props;
 
+    const pages = Array.apply(0, new Array(totalPages));
+
     return (
       <span className="report-pagination">
-        <span className={`report-pagination-prev ${page === 1 ? '-disabled' : ''}`}>Previous</span>
-        <span>{this.renderPages()}</span>
-        <span className={`report-pagination-next ${page === totalPages ? '-disabled' : ''}`}>Next</span>
+        <span className={`report-pagination-prev ${page === 1 ? '-disabled' : ''}`}
+              onClick={this.handleSetPreviousPage}
+              onKeyPress={this.handleSetPreviousPage}
+        >
+          Previous
+        </span>
+        {
+          pages.map((x, i) => (<Page key={`key_${i + 1}`}
+                                     page={i + 1}
+                                     selected={(i + 1) === page}
+                                     handleChangePage={this.handleChangePage}
+          />))
+        }
+        <span className={`report-pagination-next ${page === totalPages ? '-disabled' : ''}`}
+              onClick={this.handleSetNextPage}
+              onKeyPress={this.handleSetNextPage}
+        >
+          Next
+        </span>
       </span>
     );
   }

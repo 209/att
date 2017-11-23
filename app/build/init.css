@@ -33,11 +33,13 @@
       color: #caefe9;
       background-color: #00b298; }
   .report-pagination-prev {
-    margin-right: 20px; }
+    margin-right: 20px;
+    cursor: pointer; }
     .report-pagination-prev.-disabled {
       color: #929292; }
   .report-pagination-next {
-    margin-left: 20px; }
+    margin-left: 20px;
+    cursor: pointer; }
     .report-pagination-next.-disabled {
       color: #929292; }
 .report-footer {

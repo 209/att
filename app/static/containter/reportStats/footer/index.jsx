@@ -8,7 +8,7 @@ import {
   getRecordBegin,
   getRecordEnd,
 } from 'store/local/reportStats/selectors';
-import changePage from 'store/local/reportStats';
+import { changePage } from 'store/local/reportStats/actions';
 
 const Container = connect(state => ({
   page:       getPage(state),
