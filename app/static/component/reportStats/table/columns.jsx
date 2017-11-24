@@ -1,6 +1,6 @@
 export default [{
   Header:   'Date',
-  accessor: 'time',
+  accessor: 'date',
   minWidth: 130,
 }, {
   Header:   'Searches',

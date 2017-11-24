@@ -10,7 +10,24 @@ function* getStatistics() {
     data,
   } = yield fetchStatisticsApi();
 
-  yield put(actions.fetchStatisticsSuccess(data));
+  const result = data.map(item => ({
+    searches:      item.searches,
+    clicks:        item.clicks,
+    unique_clicks: item.unique_clicks,
+    bookings:      item.bookings,
+    sales:         item.sales,
+    date:          item.time,
+    ctr:           Number(item.ctr),
+    str:           Number(item.str),
+    duration:      Number(item.duration),
+    errors:        Number(item.errors),
+    btr:           Number(item.btr),
+    timeouts:      Number(item.timeouts),
+    zeros:         Number(item.zeros),
+    success:       Number(item.success),
+  }));
+
+  yield put(actions.fetchStatisticsSuccess(result));
 }
 
 export default function* entitiesSaga() {
