@@ -10,7 +10,7 @@ const TotalInfo = props => {
   } = props;
   return (
     <span className="report-info">
-      <span>{`Showing ${begin} to ${end} of ${total}`}</span>
+      <span>{`Showing ${begin} to ${end} of ${total} entries`}</span>
     </span>
   );
 };

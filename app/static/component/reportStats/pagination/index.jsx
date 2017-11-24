@@ -28,13 +28,53 @@ class Pagination extends Component {
     this.props.handleChangePage(this.props.page + 1);
   };
 
+  generatePages() {
+    const { totalPages, page } = this.props;
+    const arr = [];
+    const period = 5;
+    const pageStart = Math.min(page, totalPages - period);
+
+    let key = 0;
+
+    if (page >= totalPages - period) {
+      arr.push({
+        key,
+        page: 1,
+      }, {
+        key:  key + 1,
+        page: 'divider',
+      });
+      key = 2;
+    }
+
+    for (let i = pageStart; i <= pageStart + period; i += 1) {
+      arr.push({
+        key,
+        page: i,
+      });
+      key += 1;
+    }
+
+    if (totalPages - period > pageStart) {
+      arr.push({
+        key,
+        page: 'divider',
+      }, {
+        key:  key + 1,
+        page: totalPages,
+      });
+    }
+
+    return arr;
+  }
+
   render() {
     const {
       page,
       totalPages,
     } = this.props;
 
-    const pages = Array.apply(0, new Array(totalPages));
+    const pages = this.generatePages();
 
     return (
       <span className="report-pagination">
@@ -45,11 +85,19 @@ class Pagination extends Component {
           Previous
         </span>
         {
-          pages.map((x, i) => (<Page key={`key_${i + 1}`}
-                                     page={i + 1}
-                                     selected={(i + 1) === page}
-                                     handleChangePage={this.handleChangePage}
-          />))
+          pages.map(item => {
+            if (item.page === 'divider') {
+              return <span key={`${item.key}`}>...</span>;
+            }
+
+            return (
+              <Page key={`${item.key}`}
+                    page={item.page}
+                    selected={item.page === page}
+                    handleChangePage={this.handleChangePage}
+              />
+            );
+          })
         }
         <span className={`report-pagination-next ${page === totalPages ? '-disabled' : ''}`}
               onClick={this.handleSetNextPage}

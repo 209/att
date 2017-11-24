@@ -26960,7 +26960,7 @@ var Footer = function (_Component) {
         'div',
         { className: 'report-footer' },
         _react2.default.createElement(_info2.default, { begin: begin, end: end, total: total }),
-        _react2.default.createElement(_goto2.default, { page: page, handleChangePage: handleChangePage }),
+        _react2.default.createElement(_goto2.default, { page: page, totalPages: totalPages, handleChangePage: handleChangePage }),
         _react2.default.createElement(_pagination2.default, { page: page, totalPages: totalPages, handleChangePage: handleChangePage })
       );
     }
@@ -27010,7 +27010,7 @@ var TotalInfo = function TotalInfo(props) {
     _react2.default.createElement(
       'span',
       null,
-      'Showing ' + begin + ' to ' + end + ' of ' + total
+      'Showing ' + begin + ' to ' + end + ' of ' + total + ' entries'
     )
   );
 };
@@ -27054,33 +27054,50 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var GoTo = function (_Component) {
   _inherits(GoTo, _Component);
 
-  function GoTo() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function GoTo(props) {
     _classCallCheck(this, GoTo);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = _possibleConstructorReturn(this, (GoTo.__proto__ || Object.getPrototypeOf(GoTo)).call(this, props));
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = GoTo.__proto__ || Object.getPrototypeOf(GoTo)).call.apply(_ref, [this].concat(args))), _this), _this.handleKeyPress = function (event) {
-      if (event.target.code !== 13) {
+    _this.handleKeyPress = function (event) {
+      if (event.charCode !== 13) {
         return;
       }
 
-      _this.props.handleChangePage(event.target.value);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+      _this.handleApply();
+    };
+
+    _this.handleApply = function () {
+      var totalPages = _this.props.totalPages;
+      var page = _this.state.page;
+
+
+      if (page < 1) {
+        page = 1;
+      } else if (page > totalPages) {
+        page = totalPages;
+      }
+
+      _this.props.handleChangePage(page);
+    };
+
+    _this.handleChangeInput = function (event) {
+      _this.setState({
+        page: event.target.value
+      });
+    };
+
+    _this.state = {
+      page: props.page
+    };
+    return _this;
   }
 
   _createClass(GoTo, [{
     key: 'render',
     value: function render() {
-      var page = this.props.page;
+      var page = this.state.page;
 
-
-      var handleChangeInput = function handleChangeInput() {};
 
       return _react2.default.createElement(
         'span',
@@ -27093,7 +27110,8 @@ var GoTo = function (_Component) {
         _react2.default.createElement('input', { type: 'text',
           value: page,
           onKeyPress: this.handleKeyPress,
-          onChange: handleChangeInput,
+          onChange: this.handleChangeInput,
+          onBlur: this.handleApply,
           className: 'report-goto-input'
         })
       );
@@ -27177,16 +27195,60 @@ var Pagination = function (_Component) {
   }
 
   _createClass(Pagination, [{
+    key: 'generatePages',
+    value: function generatePages() {
+      var _props = this.props,
+          totalPages = _props.totalPages,
+          page = _props.page;
+
+      var arr = [];
+      var period = 5;
+      var pageStart = Math.min(page, totalPages - period);
+
+      var key = 0;
+
+      if (page >= totalPages - period) {
+        arr.push({
+          key: key,
+          page: 1
+        }, {
+          key: key + 1,
+          page: 'divider'
+        });
+        key = 2;
+      }
+
+      for (var i = pageStart; i <= pageStart + period; i += 1) {
+        arr.push({
+          key: key,
+          page: i
+        });
+        key += 1;
+      }
+
+      if (totalPages - period > pageStart) {
+        arr.push({
+          key: key,
+          page: 'divider'
+        }, {
+          key: key + 1,
+          page: totalPages
+        });
+      }
+
+      return arr;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      var _props = this.props,
-          page = _props.page,
-          totalPages = _props.totalPages;
+      var _props2 = this.props,
+          page = _props2.page,
+          totalPages = _props2.totalPages;
 
 
-      var pages = Array.apply(0, new Array(totalPages));
+      var pages = this.generatePages();
 
       return _react2.default.createElement(
         'span',
@@ -27199,10 +27261,18 @@ var Pagination = function (_Component) {
           },
           'Previous'
         ),
-        pages.map(function (x, i) {
-          return _react2.default.createElement(_page2.default, { key: 'key_' + (i + 1),
-            page: i + 1,
-            selected: i + 1 === page,
+        pages.map(function (item) {
+          if (item.page === 'divider') {
+            return _react2.default.createElement(
+              'span',
+              { key: '' + item.key },
+              '...'
+            );
+          }
+
+          return _react2.default.createElement(_page2.default, { key: '' + item.key,
+            page: item.page,
+            selected: item.page === page,
             handleChangePage: _this2.handleChangePage
           });
         }),

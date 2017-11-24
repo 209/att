@@ -30,7 +30,7 @@ class Footer extends Component {
     return (
       <div className="report-footer">
         <Info begin={begin} end={end} total={total} />
-        <GoTo page={page} handleChangePage={handleChangePage} />
+        <GoTo page={page} totalPages={totalPages} handleChangePage={handleChangePage} />
         <Pagination page={page} totalPages={totalPages} handleChangePage={handleChangePage} />
       </div>
     );
