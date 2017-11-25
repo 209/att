@@ -1,4 +1,6 @@
-// @todo Для оптипмизации использовать reselect
+// @todo НЕ ОПТИМИЗИРОВАНО
+// @todo для первичнно оптипмизации использовать reselect
+// @todo для более глубокой - переделать
 import sortBy from 'lodash-es/sortBy';
 import { getStatistics } from 'store/entity/statistics/selectors';
 
@@ -40,4 +42,48 @@ export const getRecordEnd = state => {
 
 
   return Math.min(page * limit, total);
+};
+
+const matchTotalStats = arr => {
+  const sumFields = [
+    'searches',
+    'clicks',
+    'unique_clicks',
+    'bookings',
+    'sales',
+  ];
+  const avgFields = [
+    'ctr',
+    'str',
+    'btr',
+    'timeouts',
+    'success',
+    'zeros',
+    'duration',
+    'errors',
+  ];
+
+  const defaultMemo = sumFields.concat(avgFields).reduce((memo, item) => {
+    memo[item] = 0;
+    return memo;
+  }, {});
+
+  return arr.reduce((memo, item) => {
+    sumFields.forEach(field => memo[field] += item[field]);
+    avgFields.forEach(field => memo[field] += item[field] / arr.length);
+
+    return memo;
+  }, defaultMemo);
+};
+
+export const getTotalStats = state => {
+  const stats = getStatistics(state);
+
+  return matchTotalStats(stats);
+};
+
+export const getTotalPageStats = state => {
+  const stats = getStatsPage(state);
+
+  return matchTotalStats(stats);
 };

@@ -1629,7 +1629,7 @@ var Symbol = __WEBPACK_IMPORTED_MODULE_0__root_js__["a" /* default */].Symbol;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getRecordEnd = exports.getRecordBegin = exports.getChartData = exports.getStatsPage = exports.getTotalPages = exports.getTotal = exports.getLimitOptions = exports.getLimit = exports.getPage = undefined;
+exports.getTotalPageStats = exports.getTotalStats = exports.getRecordEnd = exports.getRecordBegin = exports.getChartData = exports.getStatsPage = exports.getTotalPages = exports.getTotal = exports.getLimitOptions = exports.getLimit = exports.getPage = undefined;
 
 var _sortBy = __webpack_require__(137);
 
@@ -1639,7 +1639,9 @@ var _selectors = __webpack_require__(232);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// @todo Для оптипмизации использовать reselect
+// @todo НЕ ОПТИМИЗИРОВАНО
+// @todo для первичнно оптипмизации использовать reselect
+// @todo для более глубокой - переделать
 var getPage = exports.getPage = function getPage(state) {
   return state.reportStats.page;
 };
@@ -1689,6 +1691,39 @@ var getRecordEnd = exports.getRecordEnd = function getRecordEnd(state) {
   var limit = getLimit(state);
 
   return Math.min(page * limit, total);
+};
+
+var matchTotalStats = function matchTotalStats(arr) {
+  var sumFields = ['searches', 'clicks', 'unique_clicks', 'bookings', 'sales'];
+  var avgFields = ['ctr', 'str', 'btr', 'timeouts', 'success', 'zeros', 'duration', 'errors'];
+
+  var defaultMemo = sumFields.concat(avgFields).reduce(function (memo, item) {
+    memo[item] = 0;
+    return memo;
+  }, {});
+
+  return arr.reduce(function (memo, item) {
+    sumFields.forEach(function (field) {
+      return memo[field] += item[field];
+    });
+    avgFields.forEach(function (field) {
+      return memo[field] += item[field] / arr.length;
+    });
+
+    return memo;
+  }, defaultMemo);
+};
+
+var getTotalStats = exports.getTotalStats = function getTotalStats(state) {
+  var stats = (0, _selectors.getStatistics)(state);
+
+  return matchTotalStats(stats);
+};
+
+var getTotalPageStats = exports.getTotalPageStats = function getTotalPageStats(state) {
+  var stats = getStatsPage(state);
+
+  return matchTotalStats(stats);
 };
 
 /***/ }),
@@ -34365,6 +34400,17 @@ exports.default = ReactTablePagination;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _footer = __webpack_require__(275);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = [{
   Header: 'Date',
   accessor: 'date',
@@ -34372,55 +34418,68 @@ exports.default = [{
 }, {
   Header: 'Searches',
   accessor: 'searches',
-  minWidth: 70
+  minWidth: 70,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'searches' })
 }, {
   Header: 'Clicks',
   accessor: 'clicks',
-  minWidth: 50
+  minWidth: 50,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'clicks' })
 }, {
   Header: 'Uniq. clicks',
   accessor: 'unique_clicks',
-  minWidth: 90
+  minWidth: 90,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'unique_clicks' })
 }, {
   Header: 'CTR',
   accessor: 'ctr',
-  minWidth: 50
+  minWidth: 50,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'ctr' })
 }, {
   Header: 'Bookings',
   accessor: 'bookings',
-  minWidth: 70
+  minWidth: 70,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'bookings' })
 }, {
   Header: 'Sales',
   accessor: 'sales',
-  minWidth: 50
+  minWidth: 50,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'sales' })
 }, {
   Header: 'BTR',
   accessor: 'btr',
-  minWidth: 50
+  minWidth: 50,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'btr' })
 }, {
   Header: 'STR',
   accessor: 'str',
-  minWidth: 50
+  minWidth: 50,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'str' })
 }, {
   Header: 'Success %',
   accessor: 'success',
-  minWidth: 75
+  minWidth: 75,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'success' })
 }, {
   Header: 'Errors %',
   accessor: 'errors',
-  minWidth: 70
+  minWidth: 70,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'errors' })
 }, {
   Header: 'Zeros %',
   accessor: 'zeros',
-  minWidth: 70
+  minWidth: 70,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'zeros' })
 }, {
   Header: 'T/O %',
   accessor: 'timeouts',
-  minWidth: 50
+  minWidth: 50,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'timeouts' })
 }, {
   Header: 'Avg Resp',
   accessor: 'duration',
-  minWidth: 70
+  minWidth: 70,
+  Footer: _react2.default.createElement(_footer2.default, { field: 'duration' })
 }];
 module.exports = exports['default'];
 
@@ -37780,6 +37839,93 @@ if (typeof window !== 'undefined') {
     }
   });
 })();
+
+/***/ }),
+/* 275 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(16);
+
+var _footer = __webpack_require__(276);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _selectors = __webpack_require__(18);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Container = (0, _reactRedux.connect)(function (state) {
+  return {
+    total: (0, _selectors.getTotalStats)(state),
+    totalOnPage: (0, _selectors.getTotalPageStats)(state)
+  };
+}, {})(_footer2.default);
+
+exports.default = Container;
+module.exports = exports['default'];
+
+/***/ }),
+/* 276 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var isFloat = function isFloat(n) {
+  return Number(n) === n && n % 1 !== 0;
+};
+
+var Footer = function Footer(props) {
+  var total = props.total,
+      totalOnPage = props.totalOnPage,
+      field = props.field;
+
+
+  var totalOnPageRawValue = totalOnPage[field];
+  var totalRawValue = total[field];
+
+  var totalOnPageValue = isFloat(totalOnPageRawValue) ? totalOnPageRawValue.toFixed(2) : totalOnPageRawValue;
+  var totalValue = isFloat(totalRawValue) ? totalRawValue.toFixed(2) : totalRawValue;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      null,
+      totalOnPageValue
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      totalValue
+    )
+  );
+};
+
+exports.default = Footer;
+module.exports = exports['default'];
 
 /***/ })
 /******/ ]);
