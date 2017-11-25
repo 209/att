@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'amcharts/dist/amcharts/amcharts';
 import 'amcharts/dist/amcharts/serial';
 import 'amcharts/dist/amcharts/themes/light';
-import AmCharts from '@amcharts/amcharts3-react';
+import AmCharts from 'libs/amchartToReact';
 import config from './config';
 
 import './style.scss';

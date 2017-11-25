@@ -21,16 +21,9 @@ export const getStatsPage = state => {
 };
 
 export const getChartData = state => {
-  const stats = getStatsPage(state);
-  const result = stats.map(item => {
-    return {
-      searches: item.searches,
-      clicks:   item.clicks,
-      date:     item.date.substr(0, item.date.length - 3),
-    };
-  });
+  const stats = getStatistics(state);
 
-  return sortBy(result, [o => o.date]);
+  return sortBy(stats, [o => o.date]);
 };
 
 export const getRecordBegin = state => {
