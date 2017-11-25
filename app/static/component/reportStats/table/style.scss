@@ -9,17 +9,43 @@
       text-align:   left;
       font-weight:  bold;
     }
+
+    &.-header {
+      box-shadow: none;
+    }
   }
 
-  .rt-tbody .rt-td {
-    border-right: none;
-    text-align:   left;
+  .rt-tbody {
+    .rt-td {
+      border-right: none;
+      text-align:   left;
+    }
   }
 
-  .rt-thead.-header {
-    box-shadow: none;
+  .rt-tfoot {
+    box-shadow:       none;
+    border-top:       1px solid black;
+    background-color: #edf8ff;
+
+    .rt-td {
+      border-right: none;
+      text-align:   left;
+      padding:      0;
+    }
   }
+
   .-odd {
     background-color: #f9f9f9;
   }
+
+  .report-table-footer-cell {
+    & > div {
+      padding: 7px 5px;
+
+      &:first-child {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
 }
+

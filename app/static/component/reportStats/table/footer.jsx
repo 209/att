@@ -16,7 +16,7 @@ const Footer = props => {
   const totalValue = isFloat(totalRawValue) ? totalRawValue.toFixed(2) : totalRawValue;
 
   return (
-    <div>
+    <div className="report-table-footer-cell">
       <div>{totalOnPageValue}</div>
       <div>{totalValue}</div>
     </div>

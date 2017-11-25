@@ -34414,7 +34414,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = [{
   Header: 'Date',
   accessor: 'date',
-  minWidth: 130
+  minWidth: 130,
+  Footer: function Footer() {
+    return _react2.default.createElement(
+      'div',
+      { className: 'report-table-footer-cell' },
+      _react2.default.createElement(
+        'div',
+        null,
+        'TOTAL ON PAGE'
+      ),
+      _react2.default.createElement(
+        'div',
+        null,
+        'TOTAL'
+      )
+    );
+  }
 }, {
   Header: 'Searches',
   accessor: 'searches',
@@ -37909,15 +37925,15 @@ var Footer = function Footer(props) {
   var totalValue = isFloat(totalRawValue) ? totalRawValue.toFixed(2) : totalRawValue;
 
   return _react2.default.createElement(
-    'div',
-    null,
+    "div",
+    { className: "report-table-footer-cell" },
     _react2.default.createElement(
-      'div',
+      "div",
       null,
       totalOnPageValue
     ),
     _react2.default.createElement(
-      'div',
+      "div",
       null,
       totalValue
     )
@@ -37925,7 +37941,7 @@ var Footer = function Footer(props) {
 };
 
 exports.default = Footer;
-module.exports = exports['default'];
+module.exports = exports["default"];
 
 /***/ })
 /******/ ]);

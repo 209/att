@@ -5,6 +5,14 @@ export default [{
   Header:   'Date',
   accessor: 'date',
   minWidth: 130,
+  Footer:   () => {
+    return (
+      <div className="report-table-footer-cell">
+        <div>TOTAL ON PAGE</div>
+        <div>TOTAL</div>
+      </div>
+    );
+  },
 }, {
   Header:   'Searches',
   accessor: 'searches',

@@ -465,13 +465,25 @@
     border-right: none;
     text-align: left;
     font-weight: bold; }
+  .ReactTable .rt-thead.-header {
+    box-shadow: none; }
   .ReactTable .rt-tbody .rt-td {
     border-right: none;
     text-align: left; }
-  .ReactTable .rt-thead.-header {
-    box-shadow: none; }
+  .ReactTable .rt-tfoot {
+    box-shadow: none;
+    border-top: 1px solid black;
+    background-color: #edf8ff; }
+    .ReactTable .rt-tfoot .rt-td {
+      border-right: none;
+      text-align: left;
+      padding: 0; }
   .ReactTable .-odd {
     background-color: #f9f9f9; }
+  .ReactTable .report-table-footer-cell > div {
+    padding: 7px 5px; }
+    .ReactTable .report-table-footer-cell > div:first-child {
+      border-bottom: 1px solid black; }
 .report-limit {
   display: flex;
   line-height: 18px;
