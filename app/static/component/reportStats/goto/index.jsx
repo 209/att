@@ -10,6 +10,12 @@ class GoTo extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      page: nextProps.page,
+    });
+  }
+
   handleKeyPress = event => {
     if (event.charCode !== 13) {
       return;
@@ -22,17 +28,24 @@ class GoTo extends Component {
     const {
       totalPages,
     } = this.props;
-    let {
+    const {
       page,
     } = this.state;
 
-    if (page < 1) {
-      page = 1;
-    } else if (page > totalPages) {
-      page = totalPages;
+    let pageNum = parseInt(page, 10);
+
+    if (Number.isNaN(pageNum)) {
+      pageNum = this.props.page;
+      this.setState({
+        page: this.props.page,
+      });
+    } else if (pageNum < 1) {
+      pageNum = 1;
+    } else if (pageNum > totalPages) {
+      pageNum = totalPages;
     }
 
-    this.props.handleChangePage(page);
+    this.props.handleChangePage(pageNum);
   };
 
   handleChangeInput = event => {

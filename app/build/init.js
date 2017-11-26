@@ -28288,13 +28288,20 @@ var GoTo = function (_Component) {
       var page = _this.state.page;
 
 
-      if (page < 1) {
-        page = 1;
-      } else if (page > totalPages) {
-        page = totalPages;
+      var pageNum = parseInt(page, 10);
+
+      if (Number.isNaN(pageNum)) {
+        pageNum = _this.props.page;
+        _this.setState({
+          page: _this.props.page
+        });
+      } else if (pageNum < 1) {
+        pageNum = 1;
+      } else if (pageNum > totalPages) {
+        pageNum = totalPages;
       }
 
-      _this.props.handleChangePage(page);
+      _this.props.handleChangePage(pageNum);
     };
 
     _this.handleChangeInput = function (event) {
@@ -28310,6 +28317,13 @@ var GoTo = function (_Component) {
   }
 
   _createClass(GoTo, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState({
+        page: nextProps.page
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var page = this.state.page;
