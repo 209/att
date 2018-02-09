@@ -1,11 +1,11 @@
 import React from 'react';
-import Statistics from 'component/reportStats';
+import Users from 'containter/users';
 import './style.scss';
 
 const App = () => {
   return (
     <div className="app-container">
-      <Statistics />
+      <Users />
     </div>
   );
 };

@@ -10,9 +10,13 @@ for (let i = 0; i < 1000000; i += 1) {
 
 export const getUsersMock = term => {
   return new Promise((resolve, reject) => {
-    const result = users
-      .filter(user => user.name.indexOf(term) === 0)
-      .slice(0, LIST_COUNT);
+    let result = users;
+
+    if (term) {
+      result = users.filter(user => user.name.indexOf(term) === 0);
+    }
+
+    result = result.slice(0, LIST_COUNT);
 
     resolve({
       result,
@@ -24,17 +28,21 @@ export const getUsersMock = term => {
 
 export const getUsersURLMock = (term, offset) => {
   return new Promise((resolve, reject) => {
+    let result = users;
+
+    if (term) {
+      result = users.filter(user => user.name.indexOf(term) === 0);
+    }
+
     const nextOffset = offset + LIST_COUNT;
     const beginIndex = offset;
-    const endIndex = nextOffset - 1;
+    const endIndex = nextOffset;
 
-    const result = users
-      .filter(user => user.name.indexOf(term) === 0)
-      .slice(beginIndex, endIndex);
+    result = result.slice(beginIndex, endIndex);
 
     resolve({
       result,
-      nextPageUrl:     nextOffset,
+      nextPageUrl:     endIndex,
       previousPageUrl: '',
     });
   });

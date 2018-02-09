@@ -4,8 +4,13 @@ import Search from '../search';
 
 import './style.scss';
 
-//@todo: подключить бесконечный список
+/** @todo: подключить бесконечный список */
+
 class Users extends Component {
+  componentDidMount() {
+    this.props.fetchUsers();
+  };
+
   handleChangeTerm = term => {
     this.props.fetchUsers(term);
   };
@@ -23,7 +28,7 @@ class Users extends Component {
         </header>
         <section>
           {
-            users.map(user => <User user={user}/>)
+            users.map(user => <User user={user} key={user.id}/>)
           }
         </section>
         <footer>

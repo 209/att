@@ -1,10 +1,11 @@
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { put, takeLatest, all, select } from 'redux-saga/effects';
 import {
   getUsersMock,
   getUsersURLMock,
 } from 'api/usersMock';
 import * as actionTypes from './actionTypes';
 import * as actions from './actions';
+import { getTerm, getNextPageUrl } from './selectors';
 
 function* getUsers({ term }) {
   try {
@@ -14,30 +15,24 @@ function* getUsers({ term }) {
       previousPageUrl,
     } = yield getUsersMock(term);
 
-    yield put(actions.fetchUsersSuccess({
-      collection: result,
-      nextPageUrl,
-      previousPageUrl,
-    }));
-  } catch {
+    yield put(actions.fetchUsersSuccess(result, nextPageUrl, previousPageUrl));
+  } catch (e) {
     yield put(actions.fetchUsersFailure());
   }
 }
 
 function* nextUsers() {
   try {
+    const users = yield select();
+
     const {
       result,
       nextPageUrl,
       previousPageUrl,
-    } = yield getUsersURLMock(url);
+    } = yield getUsersURLMock(getTerm(users), getNextPageUrl(users));
 
-    yield put(actions.nextUsersSuccess({
-      collection: result,
-      nextPageUrl,
-      previousPageUrl,
-    }));
-  } catch {
+    yield put(actions.nextUsersSuccess(result, nextPageUrl, previousPageUrl));
+  } catch (e) {
     yield put(actions.nextUsersFailure());
   }
 }

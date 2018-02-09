@@ -17,6 +17,7 @@ const reducer = makeReducer(defaultState, {
     status: processStates.Process,
   }),
   [actionTypes.FETCH_USERS_SUCCESS]: (state, action) => ({
+    ...state,
     collection:      action.collection,
     nextPageUrl:     action.nextPageUrl,
     previousPageUrl: action.previousPageUrl,
@@ -34,10 +35,10 @@ const reducer = makeReducer(defaultState, {
   }),
   [actionTypes.NEXT_USERS_SUCCESS]:  (state, action) => ({
     ...state,
-    collection:      {
+    collection:      [
       ...state.collection,
       ...action.collection,
-    },
+    ],
     nextPageUrl:     action.nextPageUrl,
     previousPageUrl: action.previousPageUrl,
     status:          processStates.Ready,
