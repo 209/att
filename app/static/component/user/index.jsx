@@ -10,7 +10,7 @@ class Users extends Component {
     } = this.props.user;
 
     return (
-      <div>
+      <div className="users-item">
         {`User: ${name}`}
       </div>
     );

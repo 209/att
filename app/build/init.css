@@ -1,3 +1,39 @@
+.users-item {
+  height: 20px; }
+.users-search {
+  display: flex; }
+  .users-search input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px;
+    height: 40px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 3px;
+    box-shadow: none;
+    text-shadow: none;
+    border: 1px solid #ccc; }
+.users {
+  width: 400px;
+  height: auto;
+  color: #333333; }
+  .users > * {
+    display: flex;
+    flex-direction: column; }
+  .users section {
+    margin: 5px; }
+  .users footer {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .users footer button {
+      display: inline-flex;
+      font-size: 14px;
+      box-shadow: none;
+      border-radius: 3px;
+      width: 200px;
+      justify-content: center; }
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -43,7 +79,30 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f7fa; }
+  body > div {
+    display: flex; }
+
 .app-container {
-  font-size: 14px;
-  color: #4A4A4A;
-  padding: 20px 40px; }
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-top: 10px;
+  background-color: #e0eaea;
+  border-radius: 5px; }
+  .app-container > header {
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    display: flex; }
+  .app-container > footer {
+    display: flex;
+    flex-direction: initial;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; }

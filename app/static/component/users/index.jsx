@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Infinite from 'react-infinite';
 import User from '../user';
 import Search from '../search';
 
@@ -22,14 +23,16 @@ class Users extends Component {
     const { users, term } = this.props;
 
     return (
-      <div>
+      <div className="users">
         <header>
           <Search term={term} onChange={this.handleChangeTerm}/>
         </header>
         <section>
-          {
-            users.map(user => <User user={user} key={user.id}/>)
-          }
+          <Infinite containerHeight={500} elementHeight={20}>
+            {
+              users.map(user => <User user={user} key={user.id}/>)
+            }
+          </Infinite>
         </section>
         <footer>
           <button onClick={this.handleNextUsers}>next page</button>

@@ -11,7 +11,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="users-search">
         <input type="text" onChange={this.handleChange}/>
       </div>
     );

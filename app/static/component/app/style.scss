@@ -1,8 +1,37 @@
 @import 'node_modules/reset-css/reset.scss';
 
-.app-container {
-  font-size: 14px;
-  color:     #4A4A4A;
+body {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  background-color: #f3f7fa;
 
-  padding:   20px 40px;
+  & > div {
+    display: flex;
+  }
+}
+
+.app-container {
+  display:          flex;
+  flex-direction:   column;
+  align-content:    center;
+  justify-content:  center;
+  margin-top:       10px;
+  background-color: #e0eaea;
+  border-radius:    5px;
+
+  & > header {
+    align-content:   center;
+    justify-content: center;
+    align-items:     center;
+    display:         flex;
+  }
+
+  & > footer {
+    display:         flex;
+    flex-direction:  initial;
+    justify-content: center;
+    align-items:     flex-start;
+    flex-wrap:       wrap;
+  }
 }
