@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import users from './store/users/reducer';
+import statistics from './store/entity/statistics/reducer';
+import reportStats from './store/local/reportStats/reducer';
 
 const mainReducer = combineReducers({
-  users,
+  statistics,
+  reportStats,
 });
 
 const rootReducer = (state, action) => mainReducer(state, action);

@@ -93,7 +93,13 @@ const eslintrc = {
     "react/jsx-indent":                        0,
     "react/jsx-indent-props":                  0,
     "react/require-default-props":             0,
-    "react/forbid-prop-types":                 0
+    "react/forbid-prop-types":                 0,
+    "no-mixed-operators": [
+      "error",
+      {
+        "allowSamePrecedence": true
+      }
+    ]
   },
 };
 

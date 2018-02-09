@@ -1,7 +1,7 @@
 att:
   build: .
   volumes:
-    - '/Users/ikolevatykh/WebstormProjects/att:/att'
+    - '/Users/ikolevatyh/WebstormProjects/att:/att'
   ports:
   - 5002:80
   restart: always

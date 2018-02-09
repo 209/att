@@ -6,6 +6,7 @@ COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 RUN apt-get update
 RUN apt-get install -y apt-utils
+RUN apt-get install -my wget gnupg
 RUN apt-get install -y mc
 
 RUN apt-get install -y curl
