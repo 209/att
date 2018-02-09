@@ -1,5 +1,7 @@
 Container for developer.
 
+//docker-compose.yml: set correct volumes path  
+
 docker-compose build
 
 docker-compose up -d
