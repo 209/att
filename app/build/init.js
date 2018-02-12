@@ -26571,7 +26571,16 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app-container' },
-    _react2.default.createElement(_users2.default, null)
+    _react2.default.createElement(
+      'header',
+      null,
+      'Users'
+    ),
+    _react2.default.createElement(
+      'footer',
+      null,
+      _react2.default.createElement(_users2.default, null)
+    )
   );
 };
 
@@ -26658,8 +26667,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/** @todo: подключить бесконечный список */
-
 var Users = function (_Component) {
   _inherits(Users, _Component);
 
@@ -26707,7 +26714,7 @@ var Users = function (_Component) {
           null,
           _react2.default.createElement(
             _reactInfinite2.default,
-            { containerHeight: 500, elementHeight: 20 },
+            { containerHeight: 500, elementHeight: 50 },
             users.map(function (user) {
               return _react2.default.createElement(_user2.default, { user: user, key: user.id });
             })
@@ -27828,7 +27835,16 @@ var Users = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'users-item' },
-        'User: ' + name
+        _react2.default.createElement(
+          'span',
+          null,
+          _react2.default.createElement('img', { src: '/static/img/1.png' })
+        ),
+        _react2.default.createElement(
+          'span',
+          null,
+          '' + name
+        )
       );
     }
   }]);
@@ -28934,7 +28950,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var LIST_COUNT = 5;
+var LIST_COUNT = 10;
 var users = [];
 for (var i = 0; i < 1000000; i += 1) {
   users.push({

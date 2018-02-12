@@ -5,8 +5,6 @@ import Search from '../search';
 
 import './style.scss';
 
-/** @todo: подключить бесконечный список */
-
 class Users extends Component {
   componentDidMount() {
     this.props.fetchUsers();
@@ -28,7 +26,7 @@ class Users extends Component {
           <Search term={term} onChange={this.handleChangeTerm}/>
         </header>
         <section>
-          <Infinite containerHeight={500} elementHeight={20}>
+          <Infinite containerHeight={500} elementHeight={50}>
             {
               users.map(user => <User user={user} key={user.id}/>)
             }

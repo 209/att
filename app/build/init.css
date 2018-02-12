@@ -1,5 +1,8 @@
 .users-item {
-  height: 20px; }
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 5px 0; }
 .users-search {
   display: flex; }
   .users-search input {
@@ -9,7 +12,7 @@
     height: 40px;
     padding: 5px;
     font-size: 14px;
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: none;
     text-shadow: none;
     border: 1px solid #ccc; }
@@ -83,7 +86,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f3f7fa; }
+  background-color: #e8ebf0; }
   body > div {
     display: flex; }
 
@@ -92,14 +95,17 @@ body {
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  margin-top: 10px;
-  background-color: #e0eaea;
-  border-radius: 5px; }
+  background-color: white; }
   .app-container > header {
     align-content: center;
     justify-content: center;
     align-items: center;
-    display: flex; }
+    display: flex;
+    background-color: #5682a3;
+    padding: 15px 0;
+    color: white;
+    font-family: Ubuntu;
+    font-size: 16px; }
   .app-container > footer {
     display: flex;
     flex-direction: initial;

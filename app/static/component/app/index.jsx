@@ -5,7 +5,10 @@ import './style.scss';
 const App = () => {
   return (
     <div className="app-container">
-      <Users />
+      <header>Users</header>
+      <footer>
+        <Users />
+      </footer>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-const LIST_COUNT = 5;
+const LIST_COUNT = 10;
 const users = [];
 for (let i = 0; i < 1000000; i += 1) {
   users.push({
