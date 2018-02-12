@@ -11,7 +11,7 @@ class Users extends Component {
 
     return (
       <div className="users-item">
-        <span><img src="/static/img/1.png" /></span>
+        <span><img src="static/img/1.png" /></span>
         <span>{`${name}`}</span>
       </div>
     );

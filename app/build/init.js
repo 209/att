@@ -27838,7 +27838,7 @@ var Users = function (_Component) {
         _react2.default.createElement(
           'span',
           null,
-          _react2.default.createElement('img', { src: '/static/img/1.png' })
+          _react2.default.createElement('img', { src: 'static/img/1.png' })
         ),
         _react2.default.createElement(
           'span',
